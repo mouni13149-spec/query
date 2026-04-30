@@ -1,0 +1,21 @@
+{
+  "tables": [
+    {
+      "name": "customers",
+      "columns": ["customer_id", "customer_name", "region"]
+    },
+    {
+      "name": "products",
+      "columns": ["product_id", "product_name", "category"]
+    },
+    {
+      "name": "orders",
+      "columns": ["order_id", "customer_id", "order_date", "region", "total_amount"]
+    },
+    {
+      "name": "order_items",
+      "columns": ["order_item_id", "order_id", "product_id", "quantity", "unit_price"]
+    }
+  ]
+}
+

@@ -1,0 +1,6 @@
+{"question":"What were total sales by region?","sql":"SELECT region, ROUND(SUM(total_amount), 2) AS total_sales FROM orders GROUP BY region ORDER BY total_sales DESC;"}
+{"question":"Show the top 3 products by revenue","sql":"SELECT p.product_name, ROUND(SUM(oi.quantity * oi.unit_price), 2) AS revenue FROM order_items oi JOIN products p ON oi.product_id = p.product_id GROUP BY p.product_name ORDER BY revenue DESC LIMIT 3;"}
+{"question":"What is the average order value?","sql":"SELECT ROUND(AVG(total_amount), 2) AS average_order_value FROM orders;"}
+{"question":"How many customers are in each region?","sql":"SELECT region, COUNT(*) AS customer_count FROM customers GROUP BY region ORDER BY customer_count DESC;"}
+{"question":"Show monthly orders","sql":"SELECT SUBSTR(order_date, 1, 7) AS month, COUNT(*) AS orders FROM orders GROUP BY month ORDER BY month;"}
+

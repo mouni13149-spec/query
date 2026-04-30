@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-powered-sql-query-generator"
+version = "0.1.0"
+description = "Generate safe SQL queries from natural language with validation, execution, FastAPI, and QLoRA scaffolding."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+api = [
+  "fastapi>=0.111.0",
+  "uvicorn>=0.30.0"
+]
+ml = [
+  "accelerate>=0.30.0",
+  "bitsandbytes>=0.43.0; platform_system != 'Windows'",
+  "datasets>=2.19.0",
+  "peft>=0.11.0",
+  "torch>=2.2.0",
+  "transformers>=4.41.0",
+  "trl>=0.8.6"
+]
+
+[project.scripts]
+sql-generator = "sql_generator.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
